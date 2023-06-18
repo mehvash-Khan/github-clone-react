@@ -1,8 +1,13 @@
 import React from 'react';
-import Details from './Details.jsx'
+import Details from './Details.jsx' 
 
 function Table({name}){
+   
+   if(!name)
+   return "Please enter Name"
+   
     return(
+
       <table align="center">
         <thead>
       <tr>

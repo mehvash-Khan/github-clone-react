@@ -2,36 +2,45 @@
 import React,{useEffect,useState} from 'react'
 import { ReactComponent as MySvg } from './up-right-from-square-solid.svg';
 
-function Details({name}){
+ function Details({name}){
 
-    console.log("Entering Details")
+   
     
     const[data,setData] = useState(null)
     const [error,setError]= useState('')
     const token = process.env.REACT_APP_TOKEN
     useEffect(() =>{
+    if(!name)
+        return 
       fetch(`https://api.github.com/users/${name}/repos`, {
         headers: {
           "Authorization": "Bearer "+token
         }
       })
-      .then(response => {
+      .then(async response => {
         if(!response.ok){
-          throw new Error();
+            const body =  await response.json()
+          throw new Error(body.message);
         }
         return response.json()
       }
      
       )
       .then(data=>setData(data))
-      .catch(error=> setError(error))
+      .catch(error=> setError(error.message))
     },[name])
     
-    if(!data){
-      return "No Data found"
-    }
     
-    console.log(error);
+
+   
+        if(!data)
+        {
+            if(error)
+                return error
+            return('No data found')
+        }    
+    
+    
     
     
     return(
