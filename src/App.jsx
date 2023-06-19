@@ -1,45 +1,20 @@
 
-import React, { useState } from 'react';
+import React,{useState} from 'react'
+import { BrowserRouter,Routes, Route} from 'react-router-dom';
+import Table from './Table'
 
-import Table from './Table.jsx'
-import './App.css';
+import Home from './Home'
+
 
 function App() {
-
-const [name,setName] = useState('')
-
-function addName(){
-  var input = document.getElementById('name')
-  setName(input.value)
-
-  
-    
-}
-
-
+  const [name,setName] = useState('')
   return (
-    <div className="App">
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <h1>Read Repositories</h1> 
-
-      <label htmlFor="name" className="faded-line">Enter username    </label>
-      <input type="text" id='name' name="username"></input>
-
-      <br></br><br></br>
-      <button type="submit" onClick={addName}>Submit</button>
-      <br></br><br></br>
-      <button className="read" >Read Profile</button>
-      <br></br>
-      <br></br>
-      <br></br>
-      <Table name={name} />
-     
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home setName={setName}/>} />
+        <Route path="/table" element={<Table name={name} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

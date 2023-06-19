@@ -74,6 +74,24 @@ td{
  border:1px solid #282c34;
 }
 
+nav {
+  background-color: rgb(71, 131, 205);
+  height: 40px;
+  padding: 10px;
+  text-align: left;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 3px;
+}
+
+
+
 
 
 
