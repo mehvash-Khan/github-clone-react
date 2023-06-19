@@ -1,17 +1,19 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import Details from './Details.jsx' 
 import { useLocation } from 'react-router-dom';
+import {context} from './App'
 
-function Table({name}){
+function Table(){
 
+const data = useContext(context)
+console.log("Data ",data)
+const name = data.name
+const location = useLocation();
 
-    const location = useLocation();
-   
+console.log(name)
 
-
-   if(!name)
+if(!name)
    return "Please enter Name"
-   
 
     console.log('Table ',name)
     console.log(location.pathname)

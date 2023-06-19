@@ -1,22 +1,27 @@
 
-import React from 'react'
+import React,{useContext} from 'react'
 import { useNavigate} from 'react-router-dom';
 import './App.css';
+import {context} from './App'
 
-
-function Home({setName}){
+function Home(){
    
+    const data = useContext(context)
+    console.log("data ",data)
+
+
     const navigate = useNavigate();
     function addName(){
       var input = document.getElementById('name')
-      setName(input.value)
+      data.setName(input.value)
+      
       
     }
 function handleSubmit(){
     navigate('/table')
     
 }
-   
+  
 
     return(
 <div className="App">
