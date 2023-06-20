@@ -1,61 +1,51 @@
 
-import React,{useContext} from 'react'
+import React from 'react'
 import { useNavigate} from 'react-router-dom';
 import './App.css';
-import {context} from './App'
+import Navigation from './Navigation'
+
 
 function Home(){
-   
-    const data = useContext(context)
-    console.log("data ",data)
-
 
     const navigate = useNavigate();
-    function addName(){
-      var input = document.getElementById('name')
-      data.setName(input.value)
-      
-      
+   
+    function handleSubmit(){
+        var input = document.getElementById('name')
+        navigate('/table/'+input.value)  
     }
-function handleSubmit(){
-    navigate('/table')
+
+    function handleRead(){
+        var input = document.getElementById('name')
+        navigate('/read/'+input.value)  
+    }
     
-}
-  
+        return(
+        <div className="App">
+        <Navigation />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <h1>Read Repositories</h1> 
+        <br></br>
+        <form >
+          <label htmlFor="name" className="faded-line">Enter username    </label>
+          <input type="text" id='name' name="username"></input>
 
-    return(
-<div className="App">
+          <br></br><br></br>
+          <button type="submit" onClick={handleSubmit}  >Submit</button>
+          <br></br><br></br>
+          <button className="read" onClick={handleRead} >Read Profile</button>
+        </form>
+        <br></br>
+        <br></br>
+        <br></br>
+        
 
-<nav>
-		<a href="#">Home</a>
-		<a href="#">About</a>
-		<a href="#">Contact</a>
-	</nav>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <h1>Read Repositories</h1> 
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name" className="faded-line">Enter username    </label>
-      <input type="text" id='name' name="username"></input>
+        
+        
+        </div>
 
-      <br></br><br></br>
-      <button type="submit" onClick={addName} >Submit</button>
-      <br></br><br></br>
-      <button className="read" >Read Profile</button>
-      </form>
-      <br></br>
-      <br></br>
-      <br></br>
-      
-
-    
-     
-    </div>
-    
 
     
     )

@@ -1,11 +1,14 @@
 
 import React,{useEffect,useState} from 'react'
 import { ReactComponent as MySvg } from './up-right-from-square-solid.svg';
+import PropTypes from 'prop-types';
 
- function Details({name}){
 
-   
-    
+
+ function Details ({ name }) {
+
+
+
     const[data,setData] = useState(null)
     const [error,setError]= useState('')
     const token = process.env.REACT_APP_TOKEN
@@ -65,6 +68,11 @@ import { ReactComponent as MySvg } from './up-right-from-square-solid.svg';
     
     )
     
+    }
+
+
+    Details.propTypes = {
+        name: PropTypes.string
     }
 
     export default Details

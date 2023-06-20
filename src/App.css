@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -38,6 +39,19 @@ th {
   text-align: left;
 }
 
+button[type="submit"].follow{
+  background-color: #617487;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  width: 61%;
+    margin-left: 10%;
+}
+
 
 button[type="submit"] {
   background-color: #007bff;
@@ -68,6 +82,9 @@ button[type="submit"]:hover {
   transition: all 0.3s ease;
 }
 
+
+
+
 td{
   text-align: left;
   padding: 10px 20px;
@@ -79,6 +96,8 @@ nav {
   height: 40px;
   padding: 10px;
   text-align: left;
+  display: flex;
+  align-items: center;
 }
 
 nav a {
@@ -88,10 +107,25 @@ nav a {
   font-size: 20px;
   font-weight: bold;
   padding: 3px;
+  transition: transform 0.3s ease;
+
+}
+
+nav a:hover{
+  background-color: rgb(139, 169, 206);
+  text-decoration: none;
+  margin-right: 10px;
+  height: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px;
+  transform: scale(1.1);
 }
 
 
-
+img{
+  padding-right:20px;
+}
 
 
 
@@ -102,4 +136,27 @@ nav a {
   to {
     transform: rotate(360deg);
   }
+}
+
+.sideBar{
+
+  width: 20%;
+  background-color: #b4d1ef;
+  position: fixed;
+  height:100%;
+  align-items:center
+ 
+}
+
+
+.circular-image {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  padding-left: 10%;
+  /* Optional styles for border and box shadow */
+  
 }
