@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router';
-import Navigation from './Navigation'
+
 import './App.css';
 import  {  MapPin,Link, Twitter, Mail} from 'react-feather';
-
+import ProfileDetails from './ProfileDetails'
 
 function Profile(){
 
@@ -31,7 +31,7 @@ if(!user)
 return(
     <React.Fragment>
         <div>
-            <Navigation />
+           
             <div className='sideBar'>
                 <br></br>
                 <br></br>
@@ -53,15 +53,22 @@ return(
                
                
          
-                {user.location? <div><MapPin size="18" style={{"marginLeft":"10%"}} /><span>&nbsp; {user.location}</span><br></br></div> : <p></p> }
-                {user.email ? <div><Mail size="18" style={{"marginLeft":"10%"}} /><span>&nbsp; {user.email}</span><br></br></div> : <p></p> }
+                {user.location? <div><MapPin size="18" style={{"marginLeft":"10%"}} /><span>&nbsp; {user.location}</span><br></br></div> : null  }
+                {user.email ? <div><Mail size="18" style={{"marginLeft":"10%"}} /><span>&nbsp; {user.email}</span><br></br></div> : null }
                 
 
-                {user.blog ? <div><Link size="18" style={{"marginLeft":"10%"}} /><span>&nbsp; {user.blog}</span><br></br></div> : <p></p> }
-                {user.twitter_username ? <div><Twitter size="18" style={{"marginLeft":"10%"}} />&nbsp;<a href={`https://twitter.com/${user.twitter_username}`}> @{user.twitter_username}</a> </div>: <div></div>}
+                {user.blog ? <div><Link size="18" style={{"marginLeft":"10%"}} /><span>&nbsp; {user.blog}</span><br></br></div> : null}
+                {user.twitter_username ? <div><Twitter size="18" style={{"marginLeft":"10%"}} />&nbsp;<a href={`https://twitter.com/${user.twitter_username}`}> @{user.twitter_username}</a> </div>: null}
            
             </div>
         </div>
+
+
+
+
+
+
+       <ProfileDetails user={user} />
 
     </React.Fragment>
 

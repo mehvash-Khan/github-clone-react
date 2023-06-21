@@ -70,6 +70,20 @@ button[type="submit"]:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.heading{
+  
+  padding:1%;
+  border: none;
+  background-color: white;
+  font-size: 15px;
+}
+
+.heading:hover {
+  background-color: rgb(216, 210, 210);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 .read{
   background-color: #085031;
   border: none;
@@ -94,10 +108,14 @@ td{
 nav {
   background-color: rgb(71, 131, 205);
   height: 40px;
-  padding: 10px;
-  text-align: left;
+  width:100%;
+  top:0;
+  position: fixed;
   display: flex;
   align-items: center;
+  padding: 10px;
+  text-align: left;
+
 }
 
 nav a {
@@ -143,8 +161,25 @@ img{
   width: 20%;
   background-color: #b4d1ef;
   position: fixed;
+ top:60px;
+  left:0;
   height:100%;
   align-items:center
+  
+ 
+}
+
+.header{
+
+  margin-left: 20%;
+  padding:1%;
+  border-bottom: 1px solid rgb(110, 107, 107);
+  margin-top:4%;
+  position: fixed;
+  display: flex;
+  top: 0;
+  background-color: white;
+  width: 100%;
  
 }
 
@@ -160,3 +195,60 @@ img{
   /* Optional styles for border and box shadow */
   
 }
+
+
+.body{
+  margin-left: 20%;
+  margin-top: 10%;
+}
+
+.repo-details{
+  margin-left:5%;
+  padding:1%;
+  border-bottom: 1px solid rgb(166 159 159);
+  width: 85%;
+}
+
+.repo-details>a{
+
+  font-size: 20px;
+  color: #0069d9;
+}
+
+.repo-details > span{
+  color: gray;
+  font-size: 18px;
+  
+}
+
+
+.repo-details .topic{
+  background-color: #e8dfdf;
+  width: 10%;
+  text-align: center;
+  border-radius: 12px;
+  padding: 5px;
+  color: #363232;
+  display:inline;
+}
+
+.repo-details .visible{
+  display: inline;
+  background-color: #d7e9ef;
+  
+  padding: 5px;
+  border-radius: 15px;
+  font-size: 10px;
+  color: #100f0f;
+  width: 20px;
+}
+
+.search-bar{
+
+  width: 40%;
+  margin-left:5%;
+  height: 23px;
+  border: 1px solid #9fa3aa;
+  border-radius: 6px;
+}
+
