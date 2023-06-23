@@ -1,6 +1,6 @@
 import React, { useEffect ,useState} from 'react'
 import RepoDetails from './RepoDetails';
-
+import PropTypes from 'prop-types';
 
 
 function Repository({user}){
@@ -48,6 +48,10 @@ if(!repos)
             </div>
       </React.Fragment>
     ) 
+}
+
+Repository.propTypes = {
+    user: PropTypes.object
 }
 
 export default Repository

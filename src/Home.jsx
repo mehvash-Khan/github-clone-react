@@ -12,10 +12,7 @@ function Home(){
     const [data,setData] =useState(null)
     const navigate = useNavigate();
    
-    function handleSubmit(){
-        var input = document.getElementById('name')
-        navigate('/table/'+input.value)  
-    }
+       
 
     function handleRead(){
         var input = document.getElementById('name')

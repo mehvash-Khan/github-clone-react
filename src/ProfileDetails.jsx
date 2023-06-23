@@ -5,6 +5,9 @@ import { Routes,Route } from 'react-router-dom';
 import './App.css';
 import Repository from './Repository';
 import Stars from './Stars'
+import PropTypes from 'prop-types';
+
+
 
 function ProfileDetails({user}){
 
@@ -65,6 +68,10 @@ const navigate = useNavigate();
      
         </React.Fragment>
     )
+}
+
+ProfileDetails.propTypes = {
+    user: PropTypes.object
 }
 
 

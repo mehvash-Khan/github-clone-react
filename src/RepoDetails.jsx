@@ -1,5 +1,5 @@
-
 import React from 'react'
+import PropTypes from 'prop-types';
 
 function RepoDetails({repo}){
     return (
@@ -28,6 +28,11 @@ function RepoDetails({repo}){
 
         </React.Fragment>
     )
+}
+
+
+RepoDetails.propTypes = {
+    repo: PropTypes.object
 }
 
 export default RepoDetails;
