@@ -12,14 +12,13 @@ function RepoDetails({repo}){
         <div className='visible'>{repo.visibility}</div> 
        <br></br><br></br>
        {repo.description ? <span>{repo.description}</span> : null }
-        <br></br>
-        <br></br>
-
-      {repo.topics.map(topic =>(
+        
+        <br></br><br></br>
+      { repo.topics ?  repo.topics.map(topic =>(
 
            <div key={topic} className='topic'>{topic}</div> 
 
-       ))}  
+       )) : null }  
 
         <br></br>
         <br></br>
