@@ -1,5 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import RepoDetails from './RepoDetails';
+import PropTypes from 'prop-types';
+
 
 function Star({user}){
 
@@ -44,7 +46,9 @@ if(!repos)
     ) 
 }
 
-
+Star.propTypes = {
+    user: PropTypes.object
+}
 
 
 export default Star

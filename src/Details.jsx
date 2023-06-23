@@ -72,7 +72,8 @@ import PropTypes from 'prop-types';
 
 
     Details.propTypes = {
-        name: PropTypes.string
+        name: PropTypes.string,
+        
     }
 
     export default Details
