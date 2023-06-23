@@ -31,7 +31,7 @@ import PropTypes from 'prop-types';
       )
       .then(data=>setData(data))
       .catch(error=> setError(error.message))
-    },[name])
+    },[name,token])
     
     
 
