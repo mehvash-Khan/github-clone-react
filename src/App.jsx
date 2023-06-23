@@ -1,45 +1,38 @@
 
-import React, { useState } from 'react';
+import React,{useState} from 'react'
+import { BrowserRouter,Routes, Route} from 'react-router-dom';
+import Table from './Table'
+import Profile from './Profile'
+import Home from './Home'
+import Navigation from './Navigation';
 
-import Table from './Table.jsx'
-import './App.css';
+export const context = React.createContext();
 
 function App() {
 
-const [name,setName] = useState('')
 
-function addName(){
-  var input = document.getElementById('name')
-  setName(input.value)
 
-  
-    
-}
+  const [followers, setFollowers] = useState(JSON.parse(localStorage.getItem("follower")) ||  []);
+  const setFollowers2 = (x) => {
+    setFollowers(x);
+    localStorage.setItem('follower',JSON.stringify(x));
+  }
 
 
   return (
-    <div className="App">
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <h1>Read Repositories</h1> 
-
-      <label htmlFor="name" className="faded-line">Enter username    </label>
-      <input type="text" id='name' name="username"></input>
-
-      <br></br><br></br>
-      <button type="submit" onClick={addName}>Submit</button>
-      <br></br><br></br>
-      <button className="read" >Read Profile</button>
-      <br></br>
-      <br></br>
-      <br></br>
-      <Table name={name} />
-     
-    </div>
+    <React.Fragment>
+    <Navigation />
+      <context.Provider value={{followers, setFollowers: setFollowers2}}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/table/:name" element={<Table />} />
+            <Route path="/read/:name/*" element={<Profile />}  />
+          </Routes>
+        </BrowserRouter>
+      </context.Provider>  
+      </React.Fragment>
+    
   );
 }
 
