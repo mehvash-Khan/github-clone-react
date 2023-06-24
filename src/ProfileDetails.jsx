@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import  { BookOpen, Layers, Package, Star, Table } from 'react-feather';
 import {  useNavigate} from 'react-router';
 import { Routes,Route } from 'react-router-dom';
@@ -10,54 +10,50 @@ import Overview from './Overview';
 
 
 function ProfileDetails({user}){
+    const navigate = useNavigate();
 
-const navigate = useNavigate();
-
-
-    function displayRepos(){
-        navigate('repositories')
-        document.getElementById('repos').classList.add('clicked')
-    }
-
-    function displayOverview(){
-        navigate('overview')
-        document.getElementById('overview').classList.add('clicked')
-        
-    }
-
-    function displayProjects(){
-        navigate('projects')
-        document.getElementById('projects').classList.add('clicked')
-        
-    }
-
-    function displayStars(){
-        navigate('stars')
-        document.getElementById('stars').classList.add('clicked')
-
-    }
-
-
+    const [active,setActive] = useState('overview');
     return(
-
-        <React.Fragment>
-            <div className='header'>
-            
-                <button className='heading' id='overview' onClick={displayOverview}>
-                    <BookOpen size="16" /> Overview</button>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <button className='heading' id='repos' onClick={displayRepos}>
-                    <Layers size="16" /> Repositories</button> 
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <button className='heading' id='projects' onClick={displayProjects}>
-                    <Table size="16" /> Projects</button> 
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <button className='heading' id='packages'>
-                    <Package size="16" /> Packages</button> 
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <button className='heading' id='stars' onClick={displayStars}>
-                <Star size="16" /> Stars</button> 
-            </div>
+    <React.Fragment>
+        <div className='header'>
+            {
+                [
+                    {
+                        tabName: "overview",
+                        tabLabel: "Overview",
+                        TabIcon: BookOpen,
+                    },
+                    {
+                        tabName: "repositories",
+                        tabLabel: "Repositories",
+                        TabIcon: Layers,
+                    },
+                    {
+                        tabName: "packages",
+                        tabLabel: "Packages",
+                        TabIcon: Package,
+                    },
+                    {
+                        tabName: "projects",
+                        tabLabel: "Projects",
+                        TabIcon: Table,
+                    },
+                    {
+                        tabName: "stars",
+                        tabLabel: "Stars",
+                        TabIcon: Star,
+                    }
+                ].map(({ tabName, tabLabel, TabIcon}) => (
+                    <button className={`heading ${active === tabName ? 'clicked' : ''}`} key={tabName} onClick={()=>{
+                        setActive(tabName)
+                        navigate(tabName)
+                    }}>
+                        <TabIcon size="16" />  {tabLabel}
+                    </button>
+                ))
+            }
+               
+        </div>
 
         <div className="body">
            
