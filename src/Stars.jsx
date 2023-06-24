@@ -20,7 +20,7 @@ function Star({user}){
 
 function handleSearch(){
     var input = document.getElementById('search')
-    console.log(input.value)
+    
     setRepo(input.value)
 
 }

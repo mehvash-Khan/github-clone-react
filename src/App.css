@@ -4,16 +4,6 @@
   
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -79,8 +69,9 @@ button[type="submit"]:hover {
   font-size: 15px;
 }
 
-.heading .clicked{
+.clicked{
   background-color: rgb(216, 210, 210);
+  border-radius: 5px;
 }
 
 .heading:hover {
@@ -152,14 +143,6 @@ img{
 
 
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 .sideBar{
 
@@ -280,4 +263,25 @@ img{
     height: 24px;
     border-radius: 5px;
 }
+
+.overview{
+  display: grid;
+  grid-template-columns: 40% 40%;
+  margin: 3%;
+  grid-template-rows: 20% 20% 20% auto;
+
+}
+
+.pinned{
+  padding: 19px 33px 115px 26px;
+  border: 1px solid #b5a9a9;
+  margin: 5px;
+  border-radius: 12px;
+  height:22%
+}
+
+h5{
+  margin-left:4%;
+}
+
 
