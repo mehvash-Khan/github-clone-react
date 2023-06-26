@@ -1,7 +1,7 @@
 import  { useEffect, useState } from 'react'
 
 
-export const useGetUserDetails = (name) =>{
+export const useGetUser = (name) =>{
     const [data,setData]=useState();
     
     useEffect(()=>{

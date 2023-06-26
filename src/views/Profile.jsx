@@ -1,6 +1,6 @@
-import React, { useEffect,useContext } from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router';
-
+import {useGetUserProfile} from '../hooks/useGetUserProfile.js'
 import  {  MapPin,Link, Twitter, Mail} from 'react-feather';
 import ProfileDetails from '../components/ProfileDetails'
 import { context } from '../App';
@@ -8,18 +8,11 @@ import { context } from '../App';
 function Profile(){
 
     let {name} = useParams();
-    const [user,setUser] = React.useState();
-    useEffect(()=>{
-        fetch(`https://api.github.com/users/${name}`)
-        .then(async response => {
-            if(!response.ok)
-                throw new Error( await response.json().message);
-            return response.json()})
-        .then(data=>setUser(data))
-        .catch(error => {console.log(error)
-        })
-            
-            },[])
+  
+ 
+  
+
+        const user = useGetUserProfile(name)
 
     let {followers, setFollowers} =useContext(context)
 
@@ -53,11 +46,7 @@ function Profile(){
                     {user.blog ? <div><Link size="18" style={{"marginLeft":"10%"}} /><span>&nbsp; {user.blog}</span><br></br></div> : null}
                     {user.twitter_username ? <div><Twitter size="18" style={{"marginLeft":"10%"}} />&nbsp;<a href={`https://twitter.com/${user.twitter_username}`}> @{user.twitter_username}</a> </div>: null}
             </div>
-
-
-
            <ProfileDetails user={user} />
-
         </React.Fragment>
 
     )

@@ -2,39 +2,29 @@
 import React, { useEffect, useState } from 'react'
 import Pinned from '../components/Pinned';
 import PropTypes from 'prop-types';
+import { useGetPinnedRepos } from '../hooks/useGetPinnedRepos';
 
 function Overview({user}){
 
-    const [pinned,setPinned] =useState();
+  const [pinned,loading] = useGetPinnedRepos(user)
 
-    useEffect(()=>{
-        fetch(`https://gh-pinned-repos.egoist.dev/?username=${user.login}`)
-        .then(async response => {
-            if(!response.ok)
-                throw new Error( await response.json().message)
-            return response.json()})
-        .then(repos =>setPinned(repos))
-        .catch(error=>console.log(error.message))
-    },[])
+  
+    if(loading)
+        return("Loading pinned repositories...")
 
-
-    //console.log(pinned)
     if(!pinned)
-        return("Pinned repositories...")
+        return("No data avalaible")
 
     return(
     <React.Fragment>
         <h5>Pinned</h5>
-      <div className='overview'>
-        
+        <div className='overview'>
         {pinned.map(pin =>(
-
-           <Pinned key={pin.name} pin={pin} />
-
+          <Pinned key={pin.name} pin={pin} />
         ))}
 
-      </div>
-      </React.Fragment>
+        </div>
+    </React.Fragment>
     )
 
 }
