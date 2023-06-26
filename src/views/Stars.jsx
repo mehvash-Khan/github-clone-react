@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react'
-import RepoDetails from './RepoDetails';
+import RepoDetails from '../components/RepoDetails';
 import PropTypes from 'prop-types';
 
 

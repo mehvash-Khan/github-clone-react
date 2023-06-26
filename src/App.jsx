@@ -1,10 +1,11 @@
 
 import React,{useState} from 'react'
 import { BrowserRouter,Routes, Route} from 'react-router-dom';
-import Table from './Table'
-import Profile from './Profile'
-import Home from './Home'
-import Navigation from './Navigation';
+
+import Profile from './views/Profile'
+import Home from './views/Home';
+import Navigation from './components/Navigation';
+import './App.css';
 
 export const context = React.createContext();
 
@@ -26,7 +27,6 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/table/:name" element={<Table />} />
             <Route path="/read/:name/*" element={<Profile />}  />
           </Routes>
         </BrowserRouter>

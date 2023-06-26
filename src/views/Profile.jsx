@@ -1,10 +1,9 @@
 import React, { useEffect,useContext } from 'react'
 import { useParams } from 'react-router';
 
-import './App.css';
 import  {  MapPin,Link, Twitter, Mail} from 'react-feather';
-import ProfileDetails from './ProfileDetails'
-import { context } from './App';
+import ProfileDetails from '../components/ProfileDetails'
+import { context } from '../App';
 
 function Profile(){
 

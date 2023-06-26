@@ -7,7 +7,6 @@ function Navigation(){
         <React.Fragment>
         <nav>
             <img src="/github-mark-white.png" width="50" height="50" />
-           
         </nav>
         </React.Fragment>
     )
