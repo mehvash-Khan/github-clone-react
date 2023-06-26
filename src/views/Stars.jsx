@@ -6,7 +6,7 @@ import { useGetStarred } from '../hooks/useGetStarred';
 
 function Star({user}){
 
-  const repos = useGetStarred(user)
+  const [repos,loading] = useGetStarred(user)
     const [repo,setRepo] =useState();
 
    
@@ -16,6 +16,10 @@ function handleSearch(){
     
     setRepo(input.value)
 
+}
+
+if(loading){
+    return(<div className="loader"></div>)
 }
 
 if(!repos)
