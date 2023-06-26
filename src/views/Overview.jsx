@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Pinned from '../components/Pinned';
 import PropTypes from 'prop-types';
 import { useGetPinnedRepos } from '../hooks/useGetPinnedRepos';
@@ -10,10 +10,10 @@ function Overview({user}){
 
   
     if(loading)
-        return("Loading pinned repositories...")
+        return(<div className="loader"></div>)
 
     if(!pinned)
-        return("No data avalaible")
+        return("No pinned repositories")
 
     return(
     <React.Fragment>

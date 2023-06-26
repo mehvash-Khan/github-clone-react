@@ -5,7 +5,7 @@ import { useGetAllRepo } from '../hooks/useGetAllRepo';
 
 
 function Repository({user}){
-    const repos = useGetAllRepo(user)
+    const [repos,loading] = useGetAllRepo(user)
     const [repo,setRepo] =useState();
     
     function handleSearch(){
@@ -13,7 +13,9 @@ function Repository({user}){
         console.log(input.value)
         setRepo(input.value)    
     }
-    
+    if(loading)
+        return(<div className="loader"></div>)
+
     if(!repos)
     return 
     

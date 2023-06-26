@@ -3,6 +3,8 @@ import { useEffect,useState } from "react";
 export const useGetAllRepo = (user) =>{
 
     const [repos,setRepos] =useState(null)
+    const [loading,setLoading] = useState(true)
+
     const token = process.env.REACT_APP_TOKEN
 
 
@@ -21,9 +23,10 @@ export const useGetAllRepo = (user) =>{
       }
      
       )
-      .then(data=>setRepos(data))
+      .then(data=>{setRepos(data)
+      setLoading(false)})
       .catch(error=> error.message)
     },[token])
 
-return repos;
+return [repos,loading];
 }
