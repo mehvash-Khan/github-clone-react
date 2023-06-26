@@ -1,8 +1,7 @@
 
 import React, { useEffect, useState } from 'react'
-import { Layers, Star } from 'react-feather';
+import Pinned from '../components/Pinned';
 import PropTypes from 'prop-types';
-
 
 function Overview({user}){
 
@@ -19,9 +18,9 @@ function Overview({user}){
     },[])
 
 
-    console.log(pinned)
+    //console.log(pinned)
     if(!pinned)
-        return("No Pinned repositories")
+        return("Pinned repositories...")
 
     return(
     <React.Fragment>
@@ -30,15 +29,7 @@ function Overview({user}){
         
         {pinned.map(pin =>(
 
-            <div key={pin.name} className='pinned'>
-                 <Layers size="16" /> &nbsp;
-               <a href={pin.link}>{pin.repo}</a> &nbsp;
-                <p style={{"font-size": "16px"}}>{pin.description}</p>
-                <span  style={{"font-size": "14px"}}>Languages used: {pin.language}  </span>
-                &nbsp;&nbsp;&nbsp;
-                <p> <Star size="16" />&nbsp; {pin.stars}</p>
-                
-                </div>
+           <Pinned key={pin.name} pin={pin} />
 
         ))}
 
@@ -48,7 +39,7 @@ function Overview({user}){
 
 }
 
-Overview.propTypes = {
+Overview.propTypes  = {
     user: PropTypes.object
 }
 

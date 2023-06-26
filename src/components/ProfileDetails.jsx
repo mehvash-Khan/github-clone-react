@@ -2,11 +2,10 @@ import React, { useState } from 'react'
 import  { BookOpen, Layers, Package, Star, Table } from 'react-feather';
 import {  useNavigate} from 'react-router';
 import { Routes,Route } from 'react-router-dom';
-import './App.css';
-import Repository from './Repository';
-import Stars from './Stars'
+import Repository from '../views/Repository';
+import Stars from '../views/Stars'
 import PropTypes from 'prop-types';
-import Overview from './Overview';
+import Overview from '../views/Overview';
 
 
 function ProfileDetails({user}){
